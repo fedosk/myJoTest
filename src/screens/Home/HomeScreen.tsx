@@ -6,6 +6,7 @@ const HomeScreen = () => {
     <>
       <View style={styles.container}>
         <Text style={styles.text}>hello :)</Text>
+        <Text style={styles.text}>--></Text>
       </View>
     </>
   );
