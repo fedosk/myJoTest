@@ -15,7 +15,7 @@ export type WeekSchedule = [
   boolean,
 ];
 
-export interface Post {
+export interface Task {
   card_id: number;
   reviewer_id: number;
   name: string;
@@ -31,18 +31,18 @@ export interface Post {
 }
 
 export interface ApiResponse {
-  result: Post[];
+  result: Task[];
   success: boolean;
 }
 
 const Home = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
   const isFocused = useIsFocused();
 
-  const getPost = async () => {
+  const getTasks = async () => {
     try {
-      const response = await api.get<ApiResponse>('/getPosts');
-      setPosts(response.data.result);
+      const response = await api.get<ApiResponse>('/getCards');
+      setTasks(response.data.result);
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +51,7 @@ const Home = () => {
   useEffect(() => {
     if (isFocused) {
       const interval = setInterval(() => {
-        getPost();
+        getTasks();
       }, 10000);
 
       return () => {
@@ -61,11 +61,11 @@ const Home = () => {
   }, [isFocused]);
 
   const filteredTasks = useMemo(
-    () => posts.filter(p => p.type === 'TASKS'),
-    [posts],
+    () => tasks.filter(item => item.type === 'TASKS'),
+    [tasks],
   );
 
-  return <HomeScreen posts={filteredTasks} />;
+  return <HomeScreen tasks={filteredTasks} getTasks={getTasks} />;
 };
 
 export default Home;

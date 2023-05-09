@@ -1,10 +1,12 @@
 import React from 'react';
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Task} from '../screens/Home';
+import {addCard} from '../utils/addCard';
 
-import {Post} from '../screens/Home';
-import {addCard, AddCardItem} from '../utils/addCard';
+export interface AddCardItem
+  extends Omit<Task, 'card_id' | 'photo_required' | 'schedule'> {}
 
-const Card = ({item}: {item: Post}) => {
+const Card = ({item}: {item: Task}) => {
   const onCardPress = () => {
     Alert.alert(`${item.name}`, `${item.description ?? ''}`, [
       {
@@ -29,15 +31,13 @@ const Card = ({item}: {item: Post}) => {
   };
 
   return (
-    <>
-      <TouchableOpacity onPress={onCardPress}>
-        <View style={styles.container}>
-          <Text>{item.name}</Text>
-          <Text>Начать в: {item.period_start}</Text>
-          <Text>Закончить до: {item.period_stop}</Text>
-        </View>
-      </TouchableOpacity>
-    </>
+    <TouchableOpacity onPress={onCardPress}>
+      <View style={styles.container}>
+        <Text>{item.name}</Text>
+        {item?.period_start && <Text>Начать в: {item.period_start}</Text>}
+        {item?.period_stop && <Text>Закончить до: {item.period_stop}</Text>}
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -45,14 +45,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: 80,
-    marginBottom: 8,
-    marginTop: 8,
+    marginBottom: 10,
+    marginTop: 10,
     backgroundColor: 'white',
     borderRadius: 10,
     borderColor: '#aaaaaa',
     borderWidth: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal: 10,
   },
 });
 
