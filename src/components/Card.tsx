@@ -1,6 +1,6 @@
 import React from 'react';
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {Task} from '../screens/Home';
+import {Task} from '../screens/Test';
 import {addCard} from '../utils/addCard';
 
 export interface AddCardItem

@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, StyleSheet} from 'react-native';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MenuNavigator from './MenuNavigator';
+import TestNavigator from './TestNavigator';
 import HomeNavigator from './HomeNavigator';
 import Icons from '../assets/index';
 
@@ -26,10 +26,10 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="MenuNavigator"
-        component={MenuNavigator}
+        name="TestNavigator"
+        component={TestNavigator}
         options={{
-          tabBarLabel: 'Menu',
+          tabBarLabel: 'Test',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
             <Image
