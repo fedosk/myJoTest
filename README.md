@@ -1,3 +1,3 @@
 # myJoTest
 
-## Для тестирования необходимо запустить joson-server командой `yarn server`
+## Для тестирования необходимо запустить json-server командой `yarn server`
