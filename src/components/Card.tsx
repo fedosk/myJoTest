@@ -33,7 +33,7 @@ const Card = ({item}: {item: Task}) => {
   return (
     <TouchableOpacity onPress={onCardPress}>
       <View style={styles.container}>
-        <Text>{item.name}</Text>
+        <Text style={styles.title}>{item.name}</Text>
         {item?.period_start && <Text>Начать в: {item.period_start}</Text>}
         {item?.period_stop && <Text>Закончить до: {item.period_stop}</Text>}
       </View>
@@ -44,7 +44,7 @@ const Card = ({item}: {item: Task}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: 80,
+    height: 84,
     marginBottom: 10,
     marginTop: 10,
     backgroundColor: 'white',
@@ -54,6 +54,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: 10,
+  },
+  title: {
+    marginBottom: 4,
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
