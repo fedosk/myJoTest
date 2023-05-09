@@ -1,0 +1,164 @@
+{
+  "getPosts": {
+    "success": true,
+    "result": [
+      {
+        "card_id": 123,
+        "reviewer_id": 2,
+        "name": "Помыть посуду",
+        "reward": 1000,
+        "photo_required": true,
+        "video_required": false,
+        "schedule": [true, false, true, true, false, false, false],
+        "period_start": "2023-04-17 10:00:00",
+        "period_stop": null,
+        "type": "TASKS",
+        "description": "Помыть посуду с моющим средством или положить ее в посудомоечную машинку"
+      },
+      {
+        "card_id": 456,
+        "reviewer_id": 3,
+        "name": "Вынести мусор",
+        "reward": 2000,
+        "photo_required": false,
+        "video_required": true,
+        "schedule": [false, true, false, true, true, false, false],
+        "period_start": "2023-05-01 14:30:00",
+        "period_stop": null,
+        "type": "ALL"
+      },
+      {
+        "card_id": 7893,
+        "reviewer_id": 4,
+        "name": "Почистить зубы",
+        "reward": 500,
+        "photo_required": false,
+        "video_required": false,
+        "schedule": null,
+        "period_start": null,
+        "period_stop": null,
+        "type": "CORSES"
+      },
+      {
+        "card_id": 1249,
+        "reviewer_id": 3,
+        "name": "Погладить белье",
+        "reward": 1500,
+        "photo_required": false,
+        "video_required": true,
+        "schedule": [false, true, true, false, false, true, false],
+        "period_start": "2023-04-18 14:00:00",
+        "period_stop": null,
+        "type": "TASKS"
+      },
+      {
+        "card_id": 1258,
+        "reviewer_id": 1,
+        "name": "Вынести мусор",
+        "reward": 500,
+        "photo_required": true,
+        "video_required": false,
+        "schedule": [false, false, true, true, true, false, false],
+        "period_start": "2023-04-18 12:00:00",
+        "period_stop": null,
+        "type": "ALL"
+      },
+      {
+        "card_id": 1260,
+        "reviewer_id": 4,
+        "name": "Почистить обувь",
+        "reward": 800,
+        "photo_required": false,
+        "video_required": false,
+        "schedule": [false, false, false, true, true, false, true],
+        "period_start": "2023-04-19 16:00:00",
+        "period_stop": null,
+        "type": "CORSES"
+      },
+      {
+        "card_id": 1278,
+        "reviewer_id": 5,
+        "name": "Помыть окна",
+        "reward": 2000,
+        "photo_required": false,
+        "video_required": true,
+        "schedule": [true, true, false, false, true, false, false],
+        "period_start": "2023-04-20 10:00:00",
+        "period_stop": null,
+        "type": "ALL"
+      },
+      {
+        "card_id": 1285,
+        "reviewer_id": 3,
+        "name": "Помыть машину",
+        "reward": 2500,
+        "photo_required": true,
+        "video_required": true,
+        "schedule": [false, true, false, false, true, true, false],
+        "period_start": "2023-04-21 14:00:00",
+        "period_stop": null,
+        "type": "CORSES"
+      },
+      {
+        "card_id": 1235,
+        "reviewer_id": 2,
+        "name": "Помыть посуду",
+        "reward": 1000,
+        "photo_required": true,
+        "video_required": false,
+        "schedule": [true, false, true, true, false, false, false],
+        "period_start": "2023-04-17 10:00:00",
+        "period_stop": null,
+        "type": "ALL"
+      },
+      {
+        "card_id": 4563,
+        "reviewer_id": 4,
+        "name": "Высушить белье",
+        "reward": 800,
+        "photo_required": false,
+        "video_required": true,
+        "schedule": null,
+        "period_start": null,
+        "period_stop": "2023-05-01 08:00:00",
+        "type": "TASKS"
+      },
+      {
+        "card_id": 78933,
+        "reviewer_id": 6,
+        "name": "Помыть машину",
+        "reward": 1500,
+        "photo_required": true,
+        "video_required": true,
+        "schedule": [true, true, true, false, false, false, false],
+        "period_start": "2023-05-07 12:00:00",
+        "period_stop": "2023-05-14 12:00:00",
+        "type": "CORSES"
+      },
+      {
+        "card_id": 101112,
+        "reviewer_id": 8,
+        "name": "Выгулять собаку",
+        "reward": 500,
+        "photo_required": false,
+        "video_required": false,
+        "schedule": [true, true, true, true, true, false, false],
+        "period_start": "2023-05-10 15:00:00",
+        "period_stop": null,
+        "type": "ALL"
+      },
+      {
+        "card_id": 131415,
+        "reviewer_id": 10,
+        "name": "Почистить квартиру",
+        "reward": 2000,
+        "photo_required": true,
+        "video_required": true,
+        "schedule": null,
+        "period_start": null,
+        "period_stop": null,
+        "type": "TASKS"
+      }
+    ]
+  }
+}
