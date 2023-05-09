@@ -33,6 +33,7 @@ const TestScreen = ({tasks, getTasks}: HomeScreen) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#edf2fb',
   },
 });
 
