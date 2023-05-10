@@ -15,18 +15,16 @@ const TestScreen = ({tasks, getTasks}: HomeScreen) => {
   const renderItem = ({item}: {item: Task}) => <Card item={item} />;
 
   return (
-    <>
-      <View style={styles.container}>
-        <FlashList
-          data={tasks}
-          renderItem={renderItem}
-          keyExtractor={item => `${item.card_id}`}
-          estimatedItemSize={50}
-          onRefresh={getTasks}
-          refreshing={false}
-        />
-      </View>
-    </>
+    <View style={styles.container}>
+      <FlashList
+        data={tasks}
+        renderItem={renderItem}
+        keyExtractor={({card_id}) => `${card_id}`}
+        estimatedItemSize={50}
+        onRefresh={getTasks}
+        refreshing={false}
+      />
+    </View>
   );
 };
 
