@@ -1,10 +1,10 @@
 import React from 'react';
 
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import Home from '../screens/Home';
 
 const HomeNavigator = () => {
-  const MainStack = createNativeStackNavigator();
+  const MainStack = createStackNavigator();
 
   return (
     <MainStack.Navigator initialRouteName="Home">

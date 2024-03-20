@@ -1,22 +1,39 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
+import {Easing, Image, StyleSheet} from 'react-native';
 
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import TestNavigator from './TestNavigator';
 import HomeNavigator from './HomeNavigator';
 import Icons from '../assets/index';
 
-const Tab = createBottomTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 const TabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
+    <Tab.Navigator
+      shifting={true}
+      screenOptions={{
+        headerShown: false,
+        cardStyleInterpolator: ({current, layouts}) => {
+          return {
+            cardStyle: {
+              transform: [
+                {
+                  rotateY: current.progress.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['0deg', '360deg'],
+                  }),
+                },
+              ],
+            },
+          };
+        },
+      }}>
       <Tab.Screen
         name="HomeNavigator"
         component={HomeNavigator}
         options={{
           tabBarLabel: 'Home',
-          // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
             <Image
               style={styles.logo}
@@ -30,7 +47,6 @@ const TabNavigator = () => {
         component={TestNavigator}
         options={{
           tabBarLabel: 'Test',
-          // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({focused}) => (
             <Image
               style={styles.logo}

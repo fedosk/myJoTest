@@ -1,30 +1,52 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, {useCallback} from 'react';
+import { Dimensions, StyleSheet, Easing } from 'react-native';
+import Button from '../../components/Button';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withTiming,
+} from 'react-native-reanimated';
 
-import {FlashList} from '@shopify/flash-list';
+const TestScreen = () => {
+  const navigator = useNavigation();
 
-import {Task} from '.';
-import Card from '../../components/Card';
+  const windowWidth = Dimensions.get('window').width;
 
-interface HomeScreen {
-  tasks: Task[];
-  getTasks: () => void;
-}
+  const translationX = useSharedValue(windowWidth);
 
-const TestScreen = ({tasks, getTasks}: HomeScreen) => {
-  const renderItem = ({item}: {item: Task}) => <Card item={item} />;
+  const startAnimation = useCallback(() => {
+    translationX.value = withTiming(0, {duration: 300, easing: Easing.linear});
+  }, [translationX]);
+
+  const endAnimation = useCallback(() => {
+    translationX.value = windowWidth;
+  }, [translationX, windowWidth]);
+
+  const styleX = useAnimatedStyle(() => {
+    return {
+      transform: [{translateX: translationX.value}],
+    };
+  });
+
+  useFocusEffect(
+    useCallback(() => {
+      startAnimation();
+
+      return () => endAnimation();
+    }, [endAnimation, startAnimation]),
+  );
 
   return (
-    <View style={styles.container}>
-      <FlashList
-        data={tasks}
-        renderItem={renderItem}
-        keyExtractor={({card_id}) => `${card_id}`}
-        estimatedItemSize={50}
-        onRefresh={getTasks}
-        refreshing={false}
+    <Animated.View style={[styles.container, styleX]}>
+      <Button
+        title={'Settings'}
+        onPress={() => {
+          navigator.navigate('Settings');
+          translationX.value = 0;
+        }}
       />
-    </View>
+    </Animated.View>
   );
 };
 
@@ -32,6 +54,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#edf2fb',
+    padding: 10,
+    borderColor: 'red',
+    borderWidth: 5,
   },
 });
 
